@@ -20,9 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 contentDiv.classList.toggle('active');
 
                 if (this.id === 'manifestBtn') {
-                    this.textContent = contentDiv.classList.contains('active') ? 'Manifest einklappen' : 'Gesamtes Manifest lesen';
+                    this.textContent = contentDiv.classList.contains('active') ? '-' : '+';
                 } else {
-                    this.textContent = contentDiv.classList.contains('active') ? 'Weniger lesen' : 'Weiterlesen';
+                    this.textContent = contentDiv.classList.contains('active') ? '-' : '+';
                 }
             }
         });
