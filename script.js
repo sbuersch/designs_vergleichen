@@ -73,7 +73,7 @@ class TranslationManager {
         if (!src) return;
 
         // Build language-specific file path
-        const fileBase = src.replace('.html', '');
+        const fileBase = src.replace('_de.html', '');
         const langFile = `${fileBase}_${this.currentLang}.html`;
 
         try {
