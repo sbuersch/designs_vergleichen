@@ -14,45 +14,46 @@
         <img src="Logo_Transparent.png" alt="Liste GAZA Logo" class="header-logo">
         <div class="hero-tagline">Stimmen für globale Gerechtigkeit <br> Gemeinderatswahl Graz 2026</div>
 
-        <div class="hero-button-wrapper">
-            <a href="unterstuetzen.html" class="btn-support">
-                ✍️ Unterstütze uns mit deiner Unterschrift
-                <span class="btn-arrow">→</span>
-            </a>
+        <!-- Language Selector -->
+        <div class="language-selector">
+            <button class="lang-btn active" data-lang="de">DE</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="tr">TR</button>
+            <button class="lang-btn" data-lang="ku">KU</button>
+            <button class="lang-btn" data-lang="ar">AR</button>
+            <button class="lang-btn" data-lang="bs">BS</button>
+            <button class="lang-btn" data-lang="es">ES</button>
         </div>
     </div>
 </header>
 
 <main class="container">
-
     <div class="manifest-grid">
         <div>
             <span class="badge-topic">Manifest</span>
-            <h2 style="font-size: 2.2rem; margin-bottom: 1rem; color: var(--text-primary);">Warum wir kandidieren</h2>
-            <p class="manifest-intro">Immer mehr Menschen merken: So wie Politik gerade läuft, kann es nicht weitergehen. Viele Probleme werden größer statt kleiner – egal, welche Partei gerade an der Macht ist. Das liegt nicht nur an einzelnen Entscheidungen, sondern daran, dass das ganze System an seine Grenzen stößt.</p>
+            <h2 class="translate-text" data-key="manifest_title" style="font-size: 2.2rem; margin-bottom: 1rem; color: var(--text-primary);">Warum wir kandidieren</h2>
+            <p class="manifest-intro translate-text" data-key="manifest_intro">Immer mehr Menschen merken: So wie Politik gerade läuft, kann es nicht weitergehen. Viele Probleme werden größer statt kleiner – egal, welche Partei gerade an der Macht ist. Das liegt nicht nur an einzelnen Entscheidungen, sondern daran, dass das ganze System an seine Grenzen stößt.</p>
         </div>
         <div class="manifest-action">
-            <p style="margin-bottom: 1rem; font-weight: 500; color: var(--text-primary);">Unser System basiert auf Ausbeutung und grenzenlosem Wachstum. Wir stehen für echte Lösungen statt Symbolpolitik.</p>
-            <button class="btn-modern" id="manifestBtn" data-target="manifestFull">Gesamtes Manifest lesen</button>
+            <p style="margin-bottom: 1rem; font-weight: 500; color: var(--text-primary);" class="translate-text" data-key="manifest_action">Unser System basiert auf Ausbeutung und grenzenlosem Wachstum. Wir stehen für echte Lösungen statt Symbolpolitik.</p>
+            <button class="btn-modern" id="manifestBtn" data-target="manifestFull"><span class="translate-text" data-key="read_full_manifest">Gesamtes Manifest lesen</span></button>
         </div>
-
         <div class="expandable-content" id="manifestFull" style="grid-column: 1 / -1;" data-content-src="text/manifest.html"></div>
     </div>
 
-    <h2 class="section-title">Kernthemen</h2>
+    <h2 class="section-title translate-text" data-key="core_topics">Kernthemen</h2>
     <div class="topics-container">
-
         <div class="topic-row">
             <div class="topic-img-wrapper">
                 <img src="Imperialismus.jpeg" alt="Imperialismus" class="topic-img" style="filter: brightness(1.2) sepia(0.5);">
             </div>
             <div class="topic-body">
                 <span class="badge-topic" style="background: var(--accent-green);">Systemkritik</span>
-                <h3>Imperialismus</h3>
-                <p style="color: var(--text-secondary); margin-bottom: 1rem;">Die Wurzel des Übels: Warum wir die globale Dominanz der USA brechen müssen. Der US-Imperialismus ist nicht der „Polizist der Welt“, sondern der größte Räuber unserer Epoche.</p><br>
+                <h3 class="translate-text" data-key="imperialism_title">Imperialismus</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;" class="translate-text" data-key="imperialism_intro">Die Wurzel des Übels: Warum wir die globale Dominanz der USA brechen müssen. Der US-Imperialismus ist nicht der „Polizist der Welt“, sondern der größte Räuber unserer Epoche.</p><br>
                 <div class="expandable-content" id="imperialDetail" data-content-src="text/imperialismus.html"></div>
                 <div>
-                    <button class="btn-modern" style="background:transparent; border:2px solid var(--text-primary); color:var(--text-primary); padding: 0.5rem 1.2rem; margin-top:0.5rem;" data-target="imperialDetail">Weiterlesen</button>
+                    <button class="btn-modern" style="background:transparent; border:2px solid var(--text-primary); color:var(--text-primary); padding: 0.5rem 1.2rem; margin-top:0.5rem;" data-target="imperialDetail"><span class="translate-text" data-key="read_more">Weiterlesen</span></button>
                 </div>
             </div>
         </div>
@@ -63,11 +64,11 @@
             </div>
             <div class="topic-body">
                 <span class="badge-topic" style="background: var(--accent-green);">Gesellschaft</span>
-                <h3>Kopftuchverbot</h3>
-                <p style="color: var(--text-secondary); margin-bottom: 1rem;">Staatlicher Zwang, begründet mit nichts als Bauchgefühl. Anstatt Lösungen bietet die Regierung Symbolpolitik – rassistisch und spaltend.</p>
+                <h3 class="translate-text" data-key="headscarf_title">Kopftuchverbot</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;" class="translate-text" data-key="headscarf_intro">Staatlicher Zwang, begründet mit nichts als Bauchgefühl. Anstatt Lösungen bietet die Regierung Symbolpolitik – rassistisch und spaltend.</p>
                 <div class="expandable-content" id="headscarfDetail" data-content-src="text/kopftuchverbot.html"></div>
                 <div>
-                    <button class="btn-modern" style="background:transparent; border:2px solid var(--text-primary); color:var(--text-primary); padding: 0.5rem 1.2rem; margin-top:0.5rem;" data-target="headscarfDetail">Weiterlesen</button>
+                    <button class="btn-modern" style="background:transparent; border:2px solid var(--text-primary); color:var(--text-primary); padding: 0.5rem 1.2rem; margin-top:0.5rem;" data-target="headscarfDetail"><span class="translate-text" data-key="read_more">Weiterlesen</span></button>
                 </div>
             </div>
         </div>
@@ -78,56 +79,54 @@
             </div>
             <div class="topic-body">
                 <span class="badge-topic" style="background: var(--accent-green);">Recht</span>
-                <h3>Völkerrecht</h3>
-                <p style="color: var(--text-secondary); margin-bottom: 1rem;"><strong>Recht und Gesetz</strong> sind zu Papier gebrachte Vorschläge für nicht schädigendes Verhalten.<br> Solange allerdings keine Macht ihre Einhaltung durchsetzen kann, sind sie dieses Papier nicht wert.<br><strong>Gerechtigkeit</strong> entsteht erst, wenn gleiches Recht für alle gilt und dessen Verletzung auch wirksame Sanktionen nach sich zieht.</p>
+                <h3 class="translate-text" data-key="law_title">Völkerrecht</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;" class="translate-text" data-key="law_intro"><strong>Recht und Gesetz</strong> sind zu Papier gebrachte Vorschläge für nicht schädigendes Verhalten.<br> Solange allerdings keine Macht ihre Einhaltung durchsetzen kann, sind sie dieses Papier nicht wert.<br><strong>Gerechtigkeit</strong> entsteht erst, wenn gleiches Recht für alle gilt und dessen Verletzung auch wirksame Sanktionen nach sich zieht.</p>
                 <div class="expandable-content" id="lawDetail" data-content-src="text/voelkerrecht.html"></div>
                 <div>
-                    <button class="btn-modern" style="background:transparent; border:2px solid var(--text-primary); color:var(--text-primary); padding: 0.5rem 1.2rem; margin-top:0.5rem;" data-target="lawDetail">Weiterlesen</button>
+                    <button class="btn-modern" style="background:transparent; border:2px solid var(--text-primary); color:var(--text-primary); padding: 0.5rem 1.2rem; margin-top:0.5rem;" data-target="lawDetail"><span class="translate-text" data-key="read_more">Weiterlesen</span></button>
                 </div>
             </div>
         </div>
-
     </div>
 
-    <h2 class="section-title">Weitere Positionen</h2>
+    <h2 class="section-title translate-text" data-key="other_positions">Weitere Positionen</h2>
     <div class="accordion-grid">
         <div class="accordion-item">
             <details>
-                <summary class="accordion-summary">📢 Repression in Graz</summary>
+                <summary class="accordion-summary"><span class="translate-text" data-key="repression_title">📢 Repression in Graz</span></summary>
                 <div class="accordion-content" data-content-src="text/repression.html"></div>
             </details>
         </div>
         <div class="accordion-item">
             <details>
-                <summary class="accordion-summary">📺 Medien & Komplizenschaft</summary>
+                <summary class="accordion-summary"><span class="translate-text" data-key="media_title">📺 Medien & Komplizenschaft</span></summary>
                 <div class="accordion-content" data-content-src="text/medien.html"></div>
             </details>
         </div>
         <div class="accordion-item">
             <details>
-                <summary class="accordion-summary">✡️ Anti-Zionismus = Anti-Rassismus</summary>
+                <summary class="accordion-summary"><span class="translate-text" data-key="antizionism_title">✡️ Anti-Zionismus = Anti-Rassismus</span></summary>
                 <div class="accordion-content" data-content-src="text/antizionismus.html"></div>
             </details>
         </div>
         <div class="accordion-item">
             <details>
-                <summary class="accordion-summary">🧱 Schluss mit Apartheid!</summary>
+                <summary class="accordion-summary"><span class="translate-text" data-key="apartheid_title">🧱 Schluss mit Apartheid!</span></summary>
                 <div class="accordion-content" data-content-src="text/apartheid.html"></div>
             </details>
         </div>
         <div class="accordion-item" style="grid-column: 1 / -1;">
             <details>
-                <summary class="accordion-summary">⚡ Nie wieder Faschismus?</summary>
+                <summary class="accordion-summary"><span class="translate-text" data-key="faschism_title">⚡ Nie wieder Faschismus?</span></summary>
                 <div class="accordion-content" data-content-src="text/faschismus.html"></div>
             </details>
         </div>
     </div>
-
 </main>
 
 <footer class="footer">
     <img src="sticker_aus_social_media_logo.png" alt="Liste GAZA Logo" class="footer-logo">
-    <p>© 2026 Liste GAZA – Stimmen für globale Gerechtigkeit • Graz</p>
+    <p><span class="translate-text" data-key="copyright">© 2026 Liste GAZA – Stimmen für globale Gerechtigkeit • Graz</span></p>
     <p style="margin-top:1rem; opacity:0.6; font-size: 0.9rem;">#FreePalestine &nbsp;|&nbsp; #Antiimperialismus &nbsp;|&nbsp; #MenschenrechteStadtGraz</p>
 </footer>
 
