@@ -476,3 +476,23 @@ html[lang="ar"] .topic-row {
         padding-top: 20px;
     }
 }
+
+html[lang="fa"] .section-title:not(.manifest-section .section-title),
+html[lang="fa"] .topics-container,
+html[lang="fa"] .footer,
+html[lang="fa"] .hero-tagline,
+html[lang="fa"] .manifest-grid .badge-topic:not(:first-child),
+html[lang="fa"] .manifest-grid h2:not(.manifest-title),
+html[lang="fa"] .manifest-grid .manifest-intro {
+    display: none;
+}
+
+/* Keep manifest visible */
+html[lang="fa"] .manifest-grid {
+    display: block;
+}
+
+html[lang="fa"] .manifest-action,
+html[lang="fa"] #manifestBtn {
+    display: block;
+}

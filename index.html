@@ -22,6 +22,7 @@
             <button class="lang-btn" data-lang="tr">🇹🇷 TR</button>
             <button class="lang-btn" data-lang="bs">🇧🇦 BS</button>
             <button class="lang-btn" data-lang="es">🇪🇸 ES</button>
+            <button class="lang-btn" data-lang="fa">🇮🇷 FA</button>
         </div>
     </div>
 </header>
@@ -40,7 +41,7 @@
         <div class="expandable-content" id="manifestFull" style="grid-column: 1 / -1;" data-content-src="text/manifest_de.html"></div>
     </div>
 
-    <h2 class="section-title translate-text" data-key="core_topics">Kernthemen</h2>
+    <h2 class="section-title translate-text" data-key="core_topics">Schwerpunkte</h2>
     <div class="topics-container">
         <div class="topic-row">
             <div class="topic-img-wrapper">
@@ -56,6 +57,23 @@
                 </div>
             </div>
         </div>
+
+        <!-- Repression in Graz -->
+        <div class="topic-row">
+            <div class="topic-img-wrapper">
+                <img src="repression.jpg" alt="Repression in Graz" class="topic-img" style="filter: brightness(1.1) sepia(0.8);">
+            </div>
+            <div class="topic-body">
+                <span class="badge-topic" style="background: var(--accent-green);" data-key="lokal">Lokalpolitik</span>
+                <h3 class="translate-text" data-key="repression_title">Repression in Graz</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;" class="translate-text" data-key="repression_intro">Kritische Stimmen werden zunehmend mundtot gemacht. Wir wehren uns gegen die Einschränkung demokratischer Grundrechte auf lokaler Ebene.</p>
+                <div class="expandable-content" id="repressionDetail" data-content-src="text/repression_de.html"></div>
+                <div>
+                    <button class="btn-modern" style="background:transparent; border:2px solid var(--text-primary); color:var(--text-primary); padding: 0.5rem 1.2rem; margin-top:0.5rem;" data-target="repressionDetail"><span class="translate-text" data-key="read_more">Weiterlesen</span></button>
+                </div>
+            </div>
+        </div>
+
 
         <div class="topic-row">
             <div class="topic-img-wrapper">
@@ -74,7 +92,7 @@
 
         <div class="topic-row">
             <div class="topic-img-wrapper">
-                <img src="Voelkerrecht.jpeg" alt="Voelkerrecht.jpeg" class="topic-img" style="filter: brightness(1) sepia(0.5);">
+                <img src="Voelkerrecht.jpeg" alt="Voelkerrecht" class="topic-img" style="filter: brightness(1) sepia(0.5);">
             </div>
             <div class="topic-body">
                 <span class="badge-topic" style="background: var(--accent-green);" data-key="recht">Recht</span>
@@ -86,41 +104,76 @@
                 </div>
             </div>
         </div>
+
+
+        <!-- Medien & Komplizenschaft -->
+        <div class="topic-row">
+            <div class="topic-img-wrapper">
+                <img src="media.jpg" alt="Medien & Komplizenschaft" class="topic-img" style="filter: brightness(1.1) sepia(0);">
+            </div>
+            <div class="topic-body">
+                <span class="badge-topic" style="background: var(--accent-green);" data-key="medien">Medien</span>
+                <h3 class="translate-text" data-key="media_title">Medien & Komplizenschaft</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;" class="translate-text" data-key="media_intro">Wie die etablierte Presselandschaft Narrative der Herrschenden stützt und kritische Diskurse über globale Ungerechtigkeiten systematisch ausblendet.</p>
+                <div class="expandable-content" id="mediaDetail" data-content-src="text/medien_de.html"></div>
+                <div>
+                    <button class="btn-modern" style="background:transparent; border:2px solid var(--text-primary); color:var(--text-primary); padding: 0.5rem 1.2rem; margin-top:0.5rem;" data-target="mediaDetail"><span class="translate-text" data-key="read_more">Weiterlesen</span></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Anti-Zionismus = Anti-Rassismus -->
+        <div class="topic-row">
+            <div class="topic-img-wrapper">
+                <img src="antizionism.jpg" alt="Anti-Zionismus = Anti-Rassismus" class="topic-img" style="filter: brightness(1.1) sepia(0.6);">
+            </div>
+            <div class="topic-body">
+                <span class="badge-topic" style="background: var(--accent-green);" data-key="antirassismus">Antirassismus</span>
+                <h3 class="translate-text" data-key="antizionism_title">Anti-Zionismus = Anti-Rassismus</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;" class="translate-text" data-key="antizionism_intro">Die Gleichsetzung von legitimer Kritik mit Diskriminierung ist ein politisches Instrument. Wir stehen konsequent für echte Gleichberechtigung.</p>
+                <div class="expandable-content" id="antizionismDetail" data-content-src="text/antizionismus_de.html"></div>
+                <div>
+                    <button class="btn-modern" style="background:transparent; border:2px solid var(--text-primary); color:var(--text-primary); padding: 0.5rem 1.2rem; margin-top:0.5rem;" data-target="antizionismDetail"><span class="translate-text" data-key="read_more">Weiterlesen</span></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Schluss mit Apartheid -->
+        <div class="topic-row">
+            <div class="topic-img-wrapper">
+                <img src="end_apartheid.jpg" alt="Schluss mit Apartheid!" class="topic-img" style="filter: brightness(1.1) sepia(1.0);">
+            </div>
+            <div class="topic-body">
+                <span class="badge-topic" style="background: var(--accent-green);" data-key="menschenrechte">Menschenrechte</span>
+                <h3 class="translate-text" data-key="apartheid_title">Schluss mit Apartheid!</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;" class="translate-text" data-key="apartheid_intro">Systematische Unterdrückung und Segregation müssen überall bekämpft werden. Menschenrechte sind universell und nicht verhandelbar.</p>
+                <div class="expandable-content" id="apartheidDetail" data-content-src="text/apartheid_de.html"></div>
+                <div>
+                    <button class="btn-modern" style="background:transparent; border:2px solid var(--text-primary); color:var(--text-primary); padding: 0.5rem 1.2rem; margin-top:0.5rem;" data-target="apartheidDetail"><span class="translate-text" data-key="read_more">Weiterlesen</span></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nie wieder Faschismus -->
+        <div class="topic-row">
+            <div class="topic-img-wrapper">
+                <img src="faschismus.jpg" alt="Nie wieder Faschismus?" class="topic-img" style="filter: brightness(1.1) sepia(0.6);">
+            </div>
+            <div class="topic-body">
+                <span class="badge-topic" style="background: var(--accent-green);" data-key="antifaschismus">Antifaschismus</span>
+                <h3 class="translate-text" data-key="faschism_title">Nie wieder Faschismus?</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;" class="translate-text" data-key="faschism_intro">Ein historischer Schwur, der heute mehr denn je in die Tat umgesetzt werden muss – gegen jeden Rechtsruck und autoritäre Tendenzen.</p>
+                <div class="expandable-content" id="faschismDetail" data-content-src="text/faschismus_de.html"></div>
+                <div>
+                    <button class="btn-modern" style="background:transparent; border:2px solid var(--text-primary); color:var(--text-primary); padding: 0.5rem 1.2rem; margin-top:0.5rem;" data-target="faschismDetail"><span class="translate-text" data-key="read_more">Weiterlesen</span></button>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    <h2 class="section-title translate-text" data-key="other_positions">Weitere Positionen</h2>
-    <div class="accordion-grid">
-        <div class="accordion-item">
-            <details>
-                <summary class="accordion-summary"><span class="translate-text" data-key="repression_title">📢 Repression in Graz</span></summary>
-                <div class="accordion-content" data-content-src="text/repression_de.html"></div>
-            </details>
-        </div>
-        <div class="accordion-item">
-            <details>
-                <summary class="accordion-summary"><span class="translate-text" data-key="media_title">📺 Medien & Komplizenschaft</span></summary>
-                <div class="accordion-content" data-content-src="text/medien_de.html"></div>
-            </details>
-        </div>
-        <div class="accordion-item">
-            <details>
-                <summary class="accordion-summary"><span class="translate-text" data-key="antizionism_title">✡️ Anti-Zionismus = Anti-Rassismus</span></summary>
-                <div class="accordion-content" data-content-src="text/antizionismus_de.html"></div>
-            </details>
-        </div>
-        <div class="accordion-item">
-            <details>
-                <summary class="accordion-summary"><span class="translate-text" data-key="apartheid_title">🧱 Schluss mit Apartheid!</span></summary>
-                <div class="accordion-content" data-content-src="text/apartheid_de.html"></div>
-            </details>
-        </div>
-        <div class="accordion-item" style="grid-column: 1 / -1;">
-            <details>
-                <summary class="accordion-summary"><span class="translate-text" data-key="faschism_title">⚡ Nie wieder Faschismus?</span></summary>
-                <div class="accordion-content" data-content-src="text/faschismus_de.html"></div>
-            </details>
-        </div>
-    </div>
+
+
 </main>
 
 <footer class="footer">
