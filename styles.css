@@ -57,7 +57,7 @@ h1, h2, h3 {
 
 .hero {
     min-height: 70vh;
-    background: linear-gradient(90deg, rgba(10, 25, 39, 0.95) 0%, rgba(10, 25, 39, 0.6) 100%), url('Plakatvorlage_logo_soldat_cut.jpg');
+    background: linear-gradient(90deg, rgba(10, 25, 39, 0.95) 0%, rgba(10, 25, 39, 0.6) 100%);
     background-size: cover;
     background-position: center;
     display: flex;

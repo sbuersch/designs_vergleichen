@@ -265,9 +265,66 @@ class TranslationManager {
             loader.style.display = 'none';
         }
     }
+    
+}
+
+const SUPABASE_URL = "https://jlijxaavapxylbiouqzq.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_YEwN3wWWS2NddJOxVoq-qw_H5DpzveH";
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+
+async function trackDevice() {
+    const deviceFingerprint = btoa(
+        navigator.userAgent +
+        screen.width + 'x' + screen.height +
+        navigator.language +
+        Intl.DateTimeFormat().resolvedOptions().timeZone
+    );
+
+    // Prüfen, ob wir diesen Fingerprint schon lokal gespeichert haben
+    if (localStorage.getItem('tracked')) return;
+
+    try {
+        // Versuche den Fingerprint einzufügen.
+        // Durch "unique" in der DB schlägt der Insert fehl, wenn er existiert (was okay ist).
+        const { data, error } = await supabaseClient
+            .from('device_tracking')
+            .insert([{ fingerprint: deviceFingerprint }]);
+
+        if (!error || error.code === '23505') { // 23505 = unique_violation
+            localStorage.setItem('tracked', 'true');
+        }
+    } catch (err) {
+        console.error("Tracking Error:", err);
+    }
+}
+
+async function updateDeviceCounter() {
+    const counterElement = document.getElementById('counter');
+    if (!counterElement) return;
+
+    try {
+        // Zählt alle Einträge in der Tabelle
+        const { count, error } = await supabaseClient
+            .from('device_tracking')
+            .select('*', { count: 'exact', head: true });
+
+        if (error) throw error;
+
+        // Nur die Nummer anzeigen
+        counterElement.textContent = count || 0;
+    } catch (err) {
+        console.error("Fehler beim Laden des Counters:", err);
+        counterElement.textContent = "0";
+    }
 }
 
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
+    // Translations
     window.translationManager = new TranslationManager();
+
+    // Mitspeichern welche Geräte auf der Seite waren
+    trackDevice();
+    updateDeviceCounter();
 });
