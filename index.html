@@ -16,27 +16,11 @@
         <img src="Logo_Transparent.png" alt="Liste GAZA Logo" class="header-logo">
         <div class="hero-tagline">Stimmen für globale Gerechtigkeit <br> Gemeinderatswahl Graz 2026</div>
 
-        <!-- Highlighted Events from veranstaltungen.jpeg -->
-        <div class="hero-events-badge">
+        <!-- Highlighted Events from veranstaltungen.jpeg - only future events shown dynamically -->
+        <div class="hero-events-badge" style="position: absolute; right:0px; top: 50px;">
             <span class="event-badge-title">Nächste Highlights:</span>
-            <ul class="event-mini-list">
-                <li><strong>Mi. 03. Juni</strong> – Stickerrunde</li>
-                <li><strong>Fr. 05. Juni, 15:00-18:00</strong> – Infotisch</li>
-                <li><strong>Mi. 10. Juni, 19:30</strong> – Plakatieren (Treffpunkt: Augartenbucht)</li>
-                <li><strong>Do. 11. Juni, 19:30</strong> – Plakatieren</li>
-                <li><strong>Fr. 12. Juni, 15:00-17:30</strong> – Infotisch & <strong>18:00</strong> Vortrag Leo Gabriel + Diskussion & <strong>21:00</strong> Public Viewing: Bosnien - Kanada</li>
-                <li><strong>Sa. 13. Juni, Vormittags</strong> – Flyern in Lend und Gries</li>
-                <li><strong>So. 14. Juni</strong> – Tee ausschenken im Augarten + Flyern</li>
-                <li><strong>Mo. 15. Juni, 21:00</strong> – Public Viewing: Ägypten - Belgien</li>
-                <li><strong>Di. 16. Juni, 18:00</strong> – Vortrag Hubert Krammer</li>
-                <li><strong>Do. 18. Juni, 18:00</strong> – Public Viewing: Tschechien - Südafrika</li>
-                <li><strong>Fr. 19. Juni, 15:00-18:00</strong> – Infotisch</li>
-                <li><strong>Sa. 20. Juni</strong> – Tee ausschenken im Augarten + Flyern</li>
-                <li><strong>Di. 23. Juni, 10:00</strong> – Öffentliche Pressekonferenz am Hauptplatz</li>
-                <li><strong>Mi. 24. Juni</strong> – Flyern in Lend und Gries (?)</li>
-                <li><strong>Fr. 26. Juni, 15:00-18:00</strong> – Infotisch & <strong>21:00</strong> Public Viewing: Senegal - Irak</li>
-                <li><strong>Sa. 27. Juni, 16:00-22:00</strong> – Großes Kulturfest am Griesplatz (Aufbau ab 15:00)</li>
-                <li><strong>So. 28. Juni</strong> – 🗳️ WAHLTAG!</li>
+            <ul class="event-mini-list" id="dynamicEventList">
+                <!-- Events will be populated by JavaScript: only future dates relative to current date -->
             </ul>
         </div>
 
@@ -218,5 +202,93 @@
     <div id="counter">{{ number }}</div>
 </footer>
 
+<script>
+    (function() {
+        // --- Event data (original list from design) ---
+        const allEvents = [
+            { text: "<strong>Mi. 03. Juni</strong> – Stickerrunde", dateToken: "03. Juni" },
+            { text: "<strong>Fr. 05. Juni, 15:00-18:00</strong> – Infotisch", dateToken: "05. Juni" },
+            { text: "<strong>Mi. 10. Juni, 19:30</strong> – Plakatieren (Treffpunkt: Augartenbucht)", dateToken: "10. Juni" },
+            { text: "<strong>Do. 11. Juni, 19:30</strong> – Plakatieren", dateToken: "11. Juni" },
+            { text: "<strong>Fr. 12. Juni, 15:00-17:30</strong> – Infotisch & <strong>18:00</strong> Vortrag Leo Gabriel + Diskussion & <strong>21:00</strong> Public Viewing: Bosnien - Kanada", dateToken: "12. Juni" },
+            { text: "<strong>Sa. 13. Juni, Vormittags</strong> – Flyern in Lend und Gries", dateToken: "13. Juni" },
+            { text: "<strong>So. 14. Juni</strong> – Tee ausschenken im Augarten + Flyern", dateToken: "14. Juni" },
+            { text: "<strong>Mo. 15. Juni, 21:00</strong> – Public Viewing: Ägypten - Belgien", dateToken: "15. Juni" },
+            { text: "<strong>Di. 16. Juni, 18:00</strong> – Vortrag Hubert Krammer", dateToken: "16. Juni" },
+            { text: "<strong>Do. 18. Juni, 18:00</strong> – Public Viewing: Tschechien - Südafrika", dateToken: "18. Juni" },
+            { text: "<strong>Fr. 19. Juni, 15:00-18:00</strong> – Infotisch", dateToken: "19. Juni" },
+            { text: "<strong>Sa. 20. Juni</strong> – Tee ausschenken im Augarten + Flyern", dateToken: "20. Juni" },
+            { text: "<strong>Di. 23. Juni, 10:00</strong> – Öffentliche Pressekonferenz am Hauptplatz", dateToken: "23. Juni" },
+            { text: "<strong>Mi. 24. Juni</strong> – Flyern in Lend und Gries (?)", dateToken: "24. Juni" },
+            { text: "<strong>Fr. 26. Juni, 15:00-18:00</strong> – Infotisch & <strong>21:00</strong> Public Viewing: Senegal - Irak", dateToken: "26. Juni" },
+            { text: "<strong>Sa. 27. Juni, 16:00-22:00</strong> – Großes Kulturfest am Griesplatz (Aufbau ab 15:00)", dateToken: "27. Juni" },
+        ];
+
+        // Helper: parse day and month from token like "03. Juni" or "28. Juni"
+        function parseEventDate(dateToken, referenceYear = 2026) {
+            // dateToken examples: "03. Juni", "13. Juni", "28. Juni"
+            const match = dateToken.match(/(\d{1,2})\.\s*([A-Za-zäöüß]+)/i);
+            if (!match) return null;
+            let day = parseInt(match[1], 10);
+            let monthName = match[2].toLowerCase();
+            const months = {
+                "januar": 0, "februar": 1, "märz": 2, "april": 3, "mai": 4, "juni": 5,
+                "juli": 6, "august": 7, "september": 8, "oktober": 9, "november": 10, "dezember": 11
+            };
+            let monthIndex = months[monthName];
+            if (monthIndex === undefined) return null;
+            // Use current date context: today's date in 2026 (all events are in 2026, June)
+            // But to be robust, create a date in year 2026
+            let eventDate = new Date(referenceYear, monthIndex, day);
+            return eventDate;
+        }
+
+        function isFutureEvent(event) {
+            const today = new Date();
+            // reset time to midnight for fair date-only comparison
+            const todayMidnight = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+            const eventDate = parseEventDate(event.dateToken, 2026);
+            if (!eventDate) return true; // fallback: keep if cannot parse (but all should parse)
+            // also set event date to midnight
+            const eventMidnight = new Date(eventDate.getFullYear(), eventDate.getMonth(), eventDate.getDate());
+            return eventMidnight >= todayMidnight;
+        }
+
+        function filterFutureEvents() {
+            return allEvents.filter(isFutureEvent);
+        }
+
+        function renderEventList() {
+            const container = document.getElementById('dynamicEventList');
+            if (!container) return;
+            const futureEvents = filterFutureEvents();
+            if (futureEvents.length === 0) {
+                // optional: show placeholder if no upcoming events (but for June 2026 and current date e.g. before June 3rd, many will show)
+                container.innerHTML = '<li style="background:rgba(0,0,0,0.3); padding:0.3rem 0.9rem; border-radius:40px;">☀️ Weitere Aktionen folgen</li>';
+                return;
+            }
+            // Build list items
+            container.innerHTML = '';
+            futureEvents.forEach(ev => {
+                const li = document.createElement('li');
+                li.innerHTML = ev.text;
+                container.appendChild(li);
+            });
+        }
+
+        // also re-run on page load and optionally on language switch? but the event list is static textual dates; only filtering matters.
+        // ensure dynamic population after DOM ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', renderEventList);
+        } else {
+            renderEventList();
+        }
+
+        // Optional: preserve any existing script.js behavior but not overriding events. also handle potential future date changes
+        // For robustness, because the container originally had static items, we replace.
+        // Additionally, if someone uses language switching (buttons) and the event list should stay as future-dated, we keep it.
+        // No other modifications.
+    })();
+</script>
 </body>
 </html>
